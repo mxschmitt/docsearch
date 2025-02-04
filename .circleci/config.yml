@@ -152,6 +152,9 @@ jobs:
       - save_cache: *save_yarn_cache
       - run: *restore_dist_folders
       - run:
+          name: Install Playwright browsers
+          command: yarn playwright install --with-deps
+      - run:
           name: Cypress test Actions
           command: yarn run cy:run
 
