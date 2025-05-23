@@ -1,7 +1,7 @@
 import algolia from 'eslint-config-algolia/flat/base.js';
 import algoliaReact from 'eslint-config-algolia/flat/react.js';
 import algoliaTypescript from 'eslint-config-algolia/flat/typescript.js';
-import cypresss from 'eslint-plugin-cypress/flat'; // eslint-disable-line import/no-unresolved
+import playwright from 'eslint-plugin-playwright'
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint'; // eslint-disable-line import/no-unresolved
 
@@ -73,12 +73,13 @@ export default [
   },
   tseslint.configs.disableTypeChecked,
   {
-    files: ['cypress/**/*'],
+    ...playwright.configs['flat/recommended'],
+    files: ['playwright/**/*'],
     plugins: {
-      cypresss,
+      playwright,
     },
     rules: {
-      '@typescript-eslint/triple-slash-reference': 0,
+      ...playwright.configs['flat/recommended'].rules,
     },
   },
   {

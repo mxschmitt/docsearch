@@ -19,11 +19,13 @@ dist/
 # Environment files
 .env
 
-# Cypress Video and Screenshots output
-cypress/screenshots/
-cypress/videos/
-
 **/.yarn/*
 !**/.yarn/releases
 !**/.yarn/plugins
 !**/.yarn/patches
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
